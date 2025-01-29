@@ -1,3 +1,5 @@
+# A program that reads two values and prints the largest one, not allowing the values to be equal.
+
 first_value = int(input('First value: '))
 second_value = int(input('\nSecond value: '))
 
