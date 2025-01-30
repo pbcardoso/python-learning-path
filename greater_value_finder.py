@@ -3,6 +3,9 @@
 # After entering the values, the program will return
 # the greater of the two values.
 
+EQUAL_VALUES_ERROR = 'The values can not be equal!'
+INVALID_VALUES_ERROR = 'The values can not be letters or any other type of characters!'
+
 def green(text):
     return f"\033[32m{text}\033[m"
 def red(text):
@@ -14,13 +17,13 @@ def bigger(first_value, second_value):
     second_value_is_not_numeric = not isinstance(second_value, (float, int, complex))
 
     if first_value_is_not_numeric or second_value_is_not_numeric:
-        return 'Os valores digitados não podem ser letras ou qualquer outro tipo de caracteres!'
+        return INVALID_VALUES_ERROR
 
     if first_value > second_value:
         return first_value
 
     if first_value == second_value:
-        return 'Os valores digitados não podem ser iguais!'
+        return EQUAL_VALUES_ERROR
 
     else:
         return second_value
@@ -36,12 +39,13 @@ def function_tester(bigger_first_value, bigger_second_value, desidered_result):
   else:
     print(red('\nTEST FAIL'))
     print(result)
-
-function_tester(5, 5, 'The values can not be equal!')
-function_tester(5, 'a', 'The values can not be letters or any other type of characters!')
-function_tester(5, 3, 5)
-function_tester(3, 5, 5)
-function_tester(3, 3, 'The values can not be equal!')
-function_tester('$', 3, 'The values can not be letters or any other type of characters!')
+    
+function_tester(5, 5, EQUAL_VALUES_ERROR)
+function_tester(5, 'a', INVALID_VALUES_ERROR)
+function_tester(3, 3, EQUAL_VALUES_ERROR)
+function_tester('$', 3, INVALID_VALUES_ERROR)
 function_tester(-3, 5, 5)
 function_tester(-3, -5, -3)
+function_tester('M', 5, INVALID_VALUES_ERROR)
+function_tester('$', 8, INVALID_VALUES_ERROR)
+function_tester(-3, 4, 4)
