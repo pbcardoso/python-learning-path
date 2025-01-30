@@ -1,4 +1,4 @@
-# pythonLearningPath
+# python-learning-path
 
 Why not put all the codes and tests I do in one place? Everyone starts from somewhere.
 
